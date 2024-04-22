@@ -1,10 +1,12 @@
 <script>
-import arrowIcon from '@/assets/img/circle-up-solid.svg'
+import arrowIcon from '@/assets/img/circle-up-solid.svg';
+import github from '@/assets/img/icon-github.png';
 
 export default {
   data() {
     return {
       arrowIcon,
+      github,
       show: true,
       rule: 1,
     };
@@ -180,7 +182,7 @@ export default {
               <h2 class="text-3xl font-black w-[80px] text-center">困境挑戰</h2>
             </div>
             <div class="flex-auto ml-3">
-              <h3 class="text-2xl mt-2 font-semibold">1.客制化的服務</h3>
+              <h3 class="text-2xl mt-2 font-semibold">1.個別化的服務</h3>
               <div class="px-4">
                 <span class="text-xl">居家服務需依照案家需求提供照顧服務，因此沒有固定的工作流程，需在每次的服務中因著個案的回饋進行調整，以滿足個案的需求。</span>
               </div>
@@ -258,30 +260,6 @@ export default {
       </div>
     </div>
 
-
-
-    <!-- ?棄案:hover效果 -->
-    <!-- <div class="w-full rounded bg-amber-400 h-2 flex">
-      <div class="area-1 -mt-3 ml9">
-        <img :src="arrowIcon" class="bg-white w-9 h-9 hover:bg-red-500 rounded-full rotate-180">
-
-        <div class="content">
-          <div class="bg-white">
-            我是內容
-          </div>
-        </div>
-      </div>
-      <div class="area-1">
-        <span>我是說明2</span>
-        <img :src="arrowIcon" class="bg-white w-9 h-9 hover:bg-red-500 rounded-full rotate-180">
-        <div class="content">
-          <div class="bg-white">
-            我是內容
-          </div>
-        </div>
-      </div>
-    </div>  -->
-
     <!-- !轉職初衷 -->
     <!-- todo hover顯示內容 -->
     <section>
@@ -351,7 +329,7 @@ export default {
 
 
   <!-- !學習歷程-->
-  <section class="my-content bg-yellow-300 h-[900px]">
+  <!-- <section class="my-content bg-yellow-300 h-[900px]">
     <h5 class=" text-6xl">學習歷程</h5>
     <div class=" bg-red-300 w-full h-full p-5">
       <div class="flex p-4 basis-1/4 justify-center">
@@ -362,64 +340,79 @@ export default {
       <div class="bg-white grid grid-cols-3 gap-3 p-5">
 
         <div class="bg-blue-200 w-full h-[200px] mx-auto p-2">
-          <!-- CSS -->
           <span class="bg-black/40 text-white text-xl px-2 py-1">flex</span>
-          <div class="bg-purple-500 w-10 h-10 rounded-full">github</div>
+          <img :src="github" alt="" class="w-10">
         </div>
         <div class="bg-blue-200 w-full h-[200px] mx-auto">縮圖2</div>
         <div class="bg-blue-200 w-full h-[200px] mx-auto">縮圖3</div>
-
-
-        <!-- JS -->
         <div class="bg-blue-200 w-full h-[200px] mx-auto p-2">
           <span class="bg-black/40 text-white text-xl px-2 py-1">名稱+icon</span>
-          <div class="bg-purple-500 w-10 h-10 rounded-full">github</div>
+          <img :src="github" alt="" class="w-10">
         </div>
         <div class="bg-blue-200 w-full h-[200px] mx-auto">縮圖2</div>
         <div class="bg-blue-200 w-full h-[200px] mx-auto">縮圖3</div>
-
-
-
       </div>
       <div>看更多</div>
+    </div> -->
 
-    </div>
-
-
-
-
-
-    <!-- ?棄案 -->
-    <!-- <div class="area-2">
+  <!-- ?棄案 -->
+  <!-- <div class="area-2">
       <img :src="arrowIcon" class="try-1 bg-white w-9 h-9 hover:bg-red-500 rounded-full rotate-180 ">
       <div class="content bg-red-200 w-[300px] h-[300px]">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
-    </div> -->
-  </section>
+    </div>
+  </section>-->
 
-  <!-- !專案展示 -->
+  <!-- !個人專案 -->
   <section class="my-content bg-orange-300">
-    <h5 class=" text-6xl">專案展示</h5>
+    <h5 class=" text-6xl">個人專案</h5>
     <!-- 切換按鈕 -->
     <div class="bg-green-300 w-full h-3/4 flex flex-col p-5">
-      <div class="flex p-3 basis-1/4 justify-center">
-        <button class="bg-white/80 rounded mr-3">TodoList</button>
-        <button class="mr-3">天氣卡</button>
-        <button class="mr-3">購物車</button>
-        <button class="mr-3">課務系統</button>
+      <div class="flex p-3 basis-1/4 justify-center text-2xl">
+        <button class="bg-white/80 rounded mr-3 px-2">TodoList</button>
+        <button class="mr-3 px-2">天氣卡</button>
+        <button class="mr-3 px-2">購物車</button>
+        <button class="mr-3 px-2">課務系統</button>
       </div>
       <div class="bg-white p-5">
-
-        <div class="bg-blue-200 w-full h-[200px] mx-auto  p-2">
-          <!-- CSS -->
+        <div class="bg-blue-200 w-full mx-auto  p-2 flex grid-cols-2">
           <span class="bg-black/40 text-white text-xl px-2 py-1">TodoList</span>
-          <div class="bg-purple-500 w-10 h-10 rounded-full">github</div>
+          <img :src="github" alt="" class="w-10 ml-2">
         </div>
+      </div>
+      <div class="bg-white p-5">
+        <div class="bg-blue-200 w-full mx-auto  p-2 flex grid-cols-2">
+          <span class="bg-black/40 text-white text-xl px-2 py-1">天氣卡</span>
+          <img :src="github" alt="" class="w-10 ml-2">
+        </div>
+      </div>
+      <div class="bg-white p-5">
+        <div class="bg-blue-200 w-full mx-auto  p-2 flex grid-cols-2">
+          <span class="bg-black/40 text-white text-xl px-2 py-1">購物車</span>
+          <img :src="github" alt="" class="w-10 ml-2">
+        </div>
+      </div>
+      <div class="bg-white p-5">
+        <div class="bg-blue-200 w-full mx-auto  p-2 flex grid-cols-2">
+          <span class="bg-black/40 text-white text-xl px-2 py-1">課務系統</span>
+          <img :src="github" alt="" class="w-10 ml-2">
+        </div>
+      </div>
 
+    </div>
+  </section>
 
-
-
+  <!-- !團體專案 -->
+  <section class="my-content bg-orange-300">
+    <h5 class=" text-6xl">團體專案</h5>
+    <!-- 切換按鈕 -->
+    <div class="bg-green-300 w-full h-3/4 flex flex-col p-5">
+      <div class="bg-white p-5">
+        <div class="bg-blue-200 w-full mx-auto  p-2 flex grid-cols-2">
+          <span class="bg-black/40 text-white text-xl px-2 py-1">遠大好農 ITOMATO</span>
+          <img :src="github" alt="" class="w-10 ml-2">
+        </div>
       </div>
     </div>
   </section>

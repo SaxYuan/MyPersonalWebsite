@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <!-- ! 頁首 -->
-  <header class="bg-red-400/70 h-[50px] flex justify-between sticky top-0">
+  <header class="bg-red-400/70 h-[50px] flex justify-between sticky top-0 z-50">
     挖欸logo
     <nav class="bg-green-400 ">
       <link rel="stylesheet" href="#about-me">
