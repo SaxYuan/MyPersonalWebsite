@@ -2,7 +2,6 @@
 import { RouterLink, RouterView } from 'vue-router';
 import github from '@/assets/img/icon-github.png';
 
-
 export default {
   data() {
     return {
