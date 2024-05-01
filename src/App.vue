@@ -1,16 +1,16 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router';
 import github from '@/assets/img/icon-github.png';
-// import CSS from '@/assets/img/icon-CSS.png';
-// import HTML from '@/assets/img/icon-HTML.png';
-// import JS from '@/assets/img/icon-JS.png';
-// import Tailwind from '@/assets/img/icon-Tailwind.png';
-// import Vue from '@/assets/img/icon-Vue.png';
-// import Bootstrap from '@/assets/img/icon-Bootstrap.png';
-// import Laravel from '@/assets/img/icon-Laravel.png';
-// import codingPic from '@/assets/img/pic-coding.png';
-// import learningPic from '@/assets/img/pic-learning.png';
-// import slowPic from '@/assets/img/pic-slow.png';
+import CSS from '@/assets/img/icon-CSS.png';
+import HTML from '@/assets/img/icon-HTML.png';
+import JS from '@/assets/img/icon-JS.png';
+import Tailwind from '@/assets/img/icon-Tailwind.png';
+import Vue from '@/assets/img/icon-Vue.png';
+import Bootstrap from '@/assets/img/icon-Bootstrap.png';
+import Laravel from '@/assets/img/icon-Laravel.png';
+import codingPic from '@/assets/img/pic-coding.png';
+import learningPic from '@/assets/img/pic-learning.png';
+import slowPic from '@/assets/img/pic-slow.png';
 
 export default {
   data() {
@@ -19,16 +19,16 @@ export default {
       RouterLink,
       RouterView,
       github,
-      // CSS,
-      // HTML,
-      // JS,
-      // Tailwind,
-      // Vue,
-      // Bootstrap,
-      // Laravel,
-      // codingPic,
-      // learningPic,
-      // slowPic,
+      CSS,
+      HTML,
+      JS,
+      Tailwind,
+      Vue,
+      Bootstrap,
+      Laravel,
+      codingPic,
+      learningPic,
+      slowPic,
       show: true,
       rule: 1,
     };
@@ -75,8 +75,8 @@ export default {
     </div>
   </header>
 
-  <!--<RouterView />-->
-  <!-- ! 確定後要做的事 -->
+  <!-- <RouterView /> -->
+<!-- ! 確定後要做的事 -->
   <!-- todo 1.把大量重複class寫在style -->
   <!-- todo 2.把大量重複的架構做成組件 -->
 
@@ -154,7 +154,7 @@ export default {
         <h4 class="text-2xl sm:text-3xl text-center mb-4">仁馨護理之家 <br class="md:hidden">照顧服務員 <br class="md:hidden">(106.08-108.04)</h4>
         <div class=" grid gap-y-3">
 
-          <section class="bg-yellow-200 p-3 sm:flex rounded">
+          <section class="bg-yellow-200 p-3 sm: rounded">
             <div class="flex justify-center items-center border-b-2 border-gray-400 sm:border-r-4 sm:border-b-0">
               <h2 class="text-2xl sm:text-3xl font-black sm:w-[80px] text-center">工作內容</h2>
             </div>
@@ -371,14 +371,14 @@ export default {
         <div class="bg-red-300/80 rounded-lg text-xl text-center p-5">
           <span class="text-3xl font-bold">網頁開發</span>
           <div class="mt-3 grid grid-cols-4 items-center gap-3 px-3">
-            <!-- <img :src="CSS" alt="CSS" class="w-3">
-            <img :src="HTML" alt="HTML" class="w-3">
-            <img :src="JS" alt="JS" class="w-3">
-            <img :src="Bootstrap" alt="Bootstrap" class="w-3">
-            <img :src="Vue" alt="Vue" class="w-3">
-            <img :src="Tailwind" alt="Tailwind" class="w-3">
-            <img :src="Laravel" alt="Laravel" class="w-3">
-            <img :src="github" alt="github" class="w-3"> -->
+            <img :src="CSS" alt="CSS" class="">
+            <img :src="HTML" alt="HTML" class="">
+            <img :src="JS" alt="JS" class="">
+            <img :src="Bootstrap" alt="Bootstrap" class="">
+            <img :src="Vue" alt="Vue" class="">
+            <img :src="Tailwind" alt="Tailwind" class="">
+            <img :src="Laravel" alt="Laravel" class="">
+            <img :src="github" alt="github" class="">
           </div>
         </div>
       </div>
