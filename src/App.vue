@@ -154,7 +154,7 @@ export default {
         <h4 class="text-2xl sm:text-3xl text-center mb-4">仁馨護理之家 <br class="md:hidden">照顧服務員 <br class="md:hidden">(106.08-108.04)</h4>
         <div class=" grid gap-y-3">
 
-          <section class="bg-yellow-200 p-3 sm: rounded">
+          <section class="bg-yellow-200 p-3 sm:flex rounded">
             <div class="flex justify-center items-center border-b-2 border-gray-400 sm:border-r-4 sm:border-b-0">
               <h2 class="text-2xl sm:text-3xl font-black sm:w-[80px] text-center">工作內容</h2>
             </div>
