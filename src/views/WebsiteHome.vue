@@ -1,30 +1,30 @@
 <script>
 import github from '@/assets/img/icon-github.png';
-import CSS from '@/assets/img/icon-CSS.png';
-import HTML from '@/assets/img/icon-HTML.png';
-import JS from '@/assets/img/icon-JS.png';
-import Tailwind from '@/assets/img/icon-Tailwind.png';
-import Vue from '@/assets/img/icon-Vue.png';
-import Bootstrap from '@/assets/img/icon-Bootstrap.png';
-import Laravel from '@/assets/img/icon-Laravel.png';
-import codingPic from '@/assets/img/pic-coding.png';
-import learningPic from '@/assets/img/pic-learning.png';
-import slowPic from '@/assets/img/pic-slow.png';
+// import CSS from '@/assets/img/icon-CSS.png';
+// import HTML from '@/assets/img/icon-HTML.png';
+// import JS from '@/assets/img/icon-JS.png';
+// import Tailwind from '@/assets/img/icon-Tailwind.png';
+// import Vue from '@/assets/img/icon-Vue.png';
+// import Bootstrap from '@/assets/img/icon-Bootstrap.png';
+// import Laravel from '@/assets/img/icon-Laravel.png';
+// import codingPic from '@/assets/img/pic-coding.png';
+// import learningPic from '@/assets/img/pic-learning.png';
+// import slowPic from '@/assets/img/pic-slow.png';
 
 export default {
   data() {
     return {
       github,
-      CSS,
-      HTML,
-      JS,
-      Tailwind,
-      Vue,
-      Bootstrap,
-      Laravel,
-      codingPic,
-      learningPic,
-      slowPic,
+      // CSS,
+      // HTML,
+      // JS,
+      // Tailwind,
+      // Vue,
+      // Bootstrap,
+      // Laravel,
+      // codingPic,
+      // learningPic,
+      // slowPic,
       show: true,
       rule: 1,
     };
@@ -336,14 +336,14 @@ export default {
         <div class="bg-red-300/80 rounded-lg text-xl text-center p-5">
           <span class="text-3xl font-bold">網頁開發</span>
           <div class="mt-3 grid grid-cols-4 items-center gap-3 px-3">
-            <img :src="CSS" alt="CSS" class="">
-            <img :src="HTML" alt="HTML" class="">
-            <img :src="JS" alt="JS" class="">
-            <img :src="Bootstrap" alt="Bootstrap" class="">
-            <img :src="Vue" alt="Vue" class="">
-            <img :src="Tailwind" alt="Tailwind" class="">
-            <img :src="Laravel" alt="Laravel" class="">
-            <img :src="github" alt="github" class="">
+            <!-- <img :src="CSS" alt="CSS" class="w-3">
+            <img :src="HTML" alt="HTML" class="w-3">
+            <img :src="JS" alt="JS" class="w-3">
+            <img :src="Bootstrap" alt="Bootstrap" class="w-3">
+            <img :src="Vue" alt="Vue" class="w-3">
+            <img :src="Tailwind" alt="Tailwind" class="w-3">
+            <img :src="Laravel" alt="Laravel" class="w-3">
+            <img :src="github" alt="github" class="w-3"> -->
           </div>
         </div>
       </div>
