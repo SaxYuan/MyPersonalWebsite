@@ -153,8 +153,7 @@ export default {
       <div v-else-if="rule === 2">
         <h4 class="text-2xl sm:text-3xl text-center mb-4">仁馨護理之家 <br class="md:hidden">照顧服務員 <br class="md:hidden">(106.08-108.04)</h4>
         <div class=" grid gap-y-3">
-
-          <section class="bg-yellow-200 p-3 sm: rounded">
+          <section class="bg-yellow-200 p-3 sm:flex rounded">
             <div class="flex justify-center items-center border-b-2 border-gray-400 sm:border-r-4 sm:border-b-0">
               <h2 class="text-2xl sm:text-3xl font-black sm:w-[80px] text-center">工作內容</h2>
             </div>
@@ -163,23 +162,6 @@ export default {
               <h3 class="text-xl sm:text-2xl mt-2 font-semibold">2.協助住民參與機構活動</h3>
             </div>
           </section>
-
-          <!-- ?另一種寫法 -->
-          <!-- <section class="bg-red-200 p-3">
-            <h2 class="text-3xl font-black">困境與挑戰</h2>
-            <h3 class="text-2xl mt-2 font-semibold">1.照顧技巧與知識不足</h3>
-            <div class="px-4">
-              <span class="text-xl">社工養成較少提及照顧技巧、疾病，因此初期花費許多時間在學習照顧技巧及常見疾病與應對的知識。</span>
-            </div>
-            <h3 class="text-2xl mt-2 font-semibold">2.輪班制度及與同事間的合作</h3>
-            <div class="px-4">
-              <span class="text-xl">機構為輪班制，因此需熟悉各班別的工作流程，且因共事的同事不固定，因此需要有良好的默契，才能在突發狀況發生時能及時應變處理。</span>
-            </div>
-            <h3 class="text-2xl mt-2 font-semibold">3.需與跨專業人員溝通</h3>
-            <div class="px-4">
-              <span class="text-xl">當有個別住民狀況需要與醫事人員(如護理師、物理治療師、營養師等)討論時，需描述狀況詳細予醫事人員，才能進行有效的討論。</span>
-            </div>
-          </section> -->
 
           <section class="bg-red-200 p-3 sm:flex rounded">
             <div class="flex justify-center items-center border-b-2 border-gray-400 sm:border-r-4 sm:border-b-0">
@@ -257,7 +239,6 @@ export default {
           </section>
         </div>
       </div>
-
 
       <!-- !初出茅廬3 -->
       <div v-else-if="rule === 4">
@@ -438,7 +419,7 @@ export default {
     :class="yScrollValue < 50 ? 'hidden' : ''" @click="goTop">
     <div class="bg-red-700 p-2 px-3 text-white hover:bg-red-500 rounded-full lg:rounded-md" style="opacity:0.8">
       <span class="hidden lg:contents">GoTop</span>
-      <i class="fa-solid fa-arrow-up"></i>
+      <div class="lg:hidden -rotate-90">&#10132;</div>
     </div>
   </div>
 
