@@ -11,6 +11,7 @@ import Laravel from '@/assets/img/icon-Laravel.png';
 import codingPic from '@/assets/img/pic-coding.png';
 import learningPic from '@/assets/img/pic-learning.png';
 import slowPic from '@/assets/img/pic-slow.png';
+import tomatoPic from '@/assets/img/pic-tomato.jpg';
 
 export default {
   data() {
@@ -29,59 +30,97 @@ export default {
       codingPic,
       learningPic,
       slowPic,
+      tomatoPic,
       show: true,
       rule: 1,
+
+      typedText: '',
+      currentIndex: 0
     };
   },
   methods: {
+    // 錨點
     goToAnchor(area) {
       const element = document.querySelector(area);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     },
+
+    // 回到最上面(到header)
     goTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 800, behavior: 'smooth' });
     },
+
+    // 監聽goTop
     scrollWatch() {
       this.yScrollValue = window.scrollY;
     },
+
+    // 成長軌跡頁籤切換
     changeAboutPage(e) {
       this.show = true;
       this.rule = e;
     },
-  },
-  mounted() {
-    window.addEventListener('scroll', this.scrollWatch)
-  }
-}
 
+    // 打字動畫
+    typeWriter() {
+      const text = `Welcome to Bo-Yuan's Website！`;
+      let index = 0;
+
+      const intervalId = setInterval(() => {
+        if (index <= text.length) {
+          this.typedText = text.substring(0, index);
+          index++;
+        } else {
+          clearInterval(intervalId);
+          this.currentIndex = 0;
+          this.typeWriter();
+        }
+      }, 200);
+    },
+  },
+
+  mounted() {
+    this.typeWriter();
+    window.addEventListener('scroll', this.scrollWatch);
+  },
+}
 </script>
 
 <template>
-  <!-- ! 頁首 -->
+  <div class="px-[25%] pt-[5%] bg-black opacity-70 h-[800px] text-center" id="homePage">
+    <span class="typing-animation text-white text-[8vw] font-bold">{{ typedText }}</span>
+  </div>
+
   <header class="bg-white/30 pl-[5%] sticky top-0 z-50 p-3 md:h-[60px]">
     <div class="absolute inset-0 backdrop-blur-md"></div>
-
     <div class="relative z-10 md:flex md:justify-between">
-      <span class="font-bold text-2xl md:mt-1 md:text-3xl xl:text-4xl xl:mt-0">Bo-Yuan's Website</span>
-      <nav class="py-1 text-center sm:teat-start grid grid-cols-3 gap-x-2 text-lg md:p-1 sm:flex sm:text-center lg:text-xl lg:gap-4 md:mt-1">
-        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#work')">成長軌跡</div>
-        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#reason')">轉職初衷</div>
-        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#skill')">我的優勢</div>
-        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#myProject')">個人專案</div>
-        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#groupProject')">團體專案</div>
+      <span class="font-bold text-2xl md:mt-1 md:text-3xl xl:text-4xl xl:mt-0 cursor-pointer hover:text-red-500"
+        @click="goToAnchor('#homePage')">Bo-Yuan's Website</span>
+      <nav
+        class="py-1 text-center sm:teat-start grid grid-cols-3 gap-x-2 text-lg md:p-1 sm:flex sm:text-center lg:text-xl lg:gap-4 md:mt-1">
+        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#work')">成長軌跡
+        </div>
+        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#reason')">轉職初衷
+        </div>
+        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#skill')">我的優勢
+        </div>
+        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#myProject')">個人專案
+        </div>
+        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#groupProject')">
+          團體專案</div>
       </nav>
     </div>
   </header>
 
   <!-- <RouterView /> -->
-<!-- ! 確定後要做的事 -->
+  <!-- ! 確定後要做的事 -->
   <!-- todo 1.把大量重複class寫在style -->
   <!-- todo 2.把大量重複的架構做成組件 -->
 
-  <!-- !學經歷 -->
-  <div class="my-content bg-yellow-300 h-full" >
+  <!-- !成長軌跡 -->
+  <div class="my-content bg-yellow-300 h-full">
     <h1 class="text-4xl text-center sm:text-start mt-3 sm:text-5xl scroll-mt-32 md:scroll-mt-24" id="work">成長軌跡</h1>
     <hr class="border-2 border-white mt-1 ">
 
@@ -151,7 +190,8 @@ export default {
 
       <!-- !初出茅廬 -->
       <div v-else-if="rule === 2">
-        <h4 class="text-2xl sm:text-3xl text-center mb-4">仁馨護理之家 <br class="md:hidden">照顧服務員 <br class="md:hidden">(106.08-108.04)</h4>
+        <h4 class="text-2xl sm:text-3xl text-center mb-4">仁馨護理之家 <br class="md:hidden">照顧服務員 <br
+            class="md:hidden">(106.08-108.04)</h4>
         <div class=" grid gap-y-3">
           <section class="bg-yellow-200 p-3 sm:flex rounded">
             <div class="flex justify-center items-center border-b-2 border-gray-400 sm:border-r-4 sm:border-b-0">
@@ -199,7 +239,8 @@ export default {
 
       <!-- !初出茅廬2 -->
       <div v-else-if="rule === 3">
-        <h4 class="text-2xl sm:text-3xl text-center mb-4">美家人力資源股份有限公司 <br class="md:hidden">照顧服務員 <br class="md:hidden">(108.05-110.02)</h4>
+        <h4 class="text-2xl sm:text-3xl text-center mb-4">美家人力資源股份有限公司 <br class="md:hidden">照顧服務員 <br
+            class="md:hidden">(108.05-110.02)</h4>
         <div class=" grid gap-y-3">
 
           <section class="bg-yellow-200 p-3 sm:flex rounded">
@@ -242,7 +283,8 @@ export default {
 
       <!-- !初出茅廬3 -->
       <div v-else-if="rule === 4">
-        <h4 class="text-2xl sm:text-3xl text-center mb-4">有限責任台灣伯拉罕共生照顧勞動合作社私立伯拉罕居家長照機構<br>個案管理員 <br class="md:hidden">(110.02-112.06)</h4>
+        <h4 class="text-2xl sm:text-3xl text-center mb-4">有限責任台灣伯拉罕共生照顧勞動合作社私立伯拉罕居家長照機構<br>個案管理員 <br
+            class="md:hidden">(110.02-112.06)</h4>
         <div class=" grid gap-y-3">
           <section class="bg-yellow-200 p-3 sm:flex rounded">
             <div class="flex justify-center items-center border-b-2 border-gray-400 sm:border-r-4 sm:border-b-0">
@@ -299,27 +341,30 @@ export default {
       <h1 class="text-4xl text-center sm:text-start sm:text-5xl mt-9 scroll-mt-32 md:scroll-mt-24" id="reason">轉職初衷</h1>
       <hr class="border-2 border-white mt-1">
 
-      <div class="mt-3 bg-white h-[700px] md:h-[350px] lg:h-[300px] p-5 grid gap-2 md:grid-cols-3 rounded">
+      <div class="mt-3 bg-white h-[700px] md:h-[350px] lg:h-[300px] p-2 grid gap-2 md:grid-cols-3 rounded">
         <div class="card rounded-3xl text-3xl text-center ">
-          <div class="font text-3xl bg-red-200 h-full w-full p-5 rounded-3xl font-bold">使用Excel引發寫程式興趣
+          <div class="font text-3xl bg-red-200 h-full w-full p-5 rounded-2xl font-bold">使用Excel引發寫程式興趣
             <img :src="codingPic" alt="我是插圖" class="card w-[100px] h-[100px] mx-auto sm:mt-5  lg:mt-9">
           </div>
-          <div class="back text-2xl bg-blue-200 h-full w-full p-5 rounded-3xl text-start sm:p-9 xl:text-3xl">曾多次用Excel編寫程式，協助自己與同事提升工作效率，並從中引發寫程式的興趣。</div>
+          <div class="back text-2xl bg-blue-200 h-full w-full p-5 rounded-2xl text-start sm:p-9 xl:text-3xl">
+            曾多次用Excel編寫程式，協助自己與同事提升工作效率，並從中引發寫程式的興趣。</div>
         </div>
         <div class="card rounded-3xl text-3xl text-center ">
-          <div class="font text-3xl bg-red-200 h-full w-full p-5 rounded-3xl lg:pt-9 font-bold">樂於學習新事物
+          <div class="font text-3xl bg-red-200 h-full w-full p-5 rounded-2xl lg:pt-9 font-bold">樂於學習新事物
             <img :src="learningPic" alt="我是插圖" class="card w-[100px] h-[100px] mx-auto mt-5 lg:mt-9">
           </div>
-          <div class="back text-2xl bg-blue-200 h-full w-full p-5 rounded-3xl text-start sm:p-9 xl:text-3xl">對於有興趣的事情，會利用閒暇時間學習，並運用在生活或工作上。</div>
+          <div class="back text-2xl bg-blue-200 h-full w-full p-5 rounded-2xl text-start sm:p-9 xl:text-3xl">
+            對於有興趣的事情，會利用閒暇時間學習，並運用在生活或工作上。</div>
         </div>
         <div class="card rounded-3xl text-3xl text-center">
-          <div class="font text-3xl bg-red-200 h-full w-full p-5 rounded-3xl lg:pt-9 font-bold">原領域成長趨緩
+          <div class="font text-3xl bg-red-200 h-full w-full p-5 rounded-2xl lg:pt-9 font-bold">原領域成長趨緩
             <img :src="slowPic" alt="我是插圖" class="card w-[100px] h-[100px] mx-auto mt-5 lg:mt-9">
           </div>
-          <div class="back text-2xl bg-blue-200 h-full w-full p-5 rounded-3xl text-start sm:p-9 xl:text-3xl">能遊刃有餘地處理工作事務，並能獨自帶領新進人員，自覺成長速度已趨緩。
+          <div class="back text-2xl bg-blue-200 h-full w-full p-5 rounded-2xl text-start sm:p-9 xl:text-3xl">
+            能遊刃有餘地處理工作事務，並能獨自帶領新進人員，自覺成長速度已趨緩。
           </div>
         </div>
-        
+
       </div>
     </section>
 
@@ -328,8 +373,8 @@ export default {
     <section class="my-9">
       <h1 class="text-4xl text-center sm:text-start sm:text-5xl mt-9 scroll-mt-32 md:scroll-mt-24" id="skill">我的優勢</h1>
       <hr class="border-2 border-white mt-1">
-      <div class="mt-3 bg-white p-5 grid gap-2 lg:grid-cols-3 rounded">
-        <div class="bg-red-300/80 rounded-lg text-xl text-center p-5">
+      <div class="mt-3 bg-white p-2 grid gap-2 lg:grid-cols-3 rounded">
+        <div class="bg-red-300/80 rounded-2xl text-xl text-center p-5">
           <span class="text-3xl font-bold">個人特質</span>
           <ul class="mt-3 ml-53 text-start">
             <li>1.樂於分享與傾聽</li>
@@ -339,7 +384,7 @@ export default {
             <li>5.有獨立思考能力</li>
           </ul>
         </div>
-        <div class="bg-red-300/80 rounded-lg text-xl text-center p-5">
+        <div class="bg-red-300/80 rounded-2xl text-xl text-center p-5">
           <span class="text-3xl font-bold">經驗累積</span>
           <ul class="mt-3 ml-3 text-start">
             <li>1.豐富跨專業、跨部門合作與溝通</li>
@@ -349,7 +394,7 @@ export default {
             <li>5.</li>
           </ul>
         </div>
-        <div class="bg-red-300/80 rounded-lg text-xl text-center p-5">
+        <div class="bg-red-300/80 rounded-2xl text-xl text-center p-5">
           <span class="text-3xl font-bold">網頁開發</span>
           <div class="mt-3 grid grid-cols-4 items-center gap-3 px-3">
             <img :src="CSS" alt="CSS" class="">
@@ -368,31 +413,32 @@ export default {
 
   <!-- !個人專案 -->
   <section class="my-content bg-orange-300">
-    <h5 class="text-4xl sm:text-5xl text-center sm:text-start scroll-mt-32 md:scroll-mt-24 mt-3" id="myProject">個人專案</h5>
+    <h5 class="text-4xl sm:text-5xl text-center sm:text-start scroll-mt-32 md:scroll-mt-24 mt-3" id="myProject">個人專案
+    </h5>
     <hr class="border-2 border-white mt-1 rounded">
-    
+
     <div class=" w-full h-3/4 pt-3 pb-5 lg:grid lg:grid-cols-2 lg:gap-5">
       <div class="bg-white p-2 rounded mb-2">
         <div class="bg-blue-200 w-full mx-auto  p-2 flex grid-cols-2 rounded">
-          <span class="bg-black/40 text-white text-xl px-2 py-1">TodoList</span>
+          <span class="bg-black/40 text-white text-xl px-2 py-1 rounded">TodoList</span>
           <img :src="github" alt="" class="w-10 ml-2">
         </div>
       </div>
       <div class="bg-white p-2 rounded mb-2">
         <div class="bg-blue-200 w-full mx-auto  p-2 flex grid-cols-2 rounded">
-          <span class="bg-black/40 text-white text-xl px-2 py-1">天氣卡</span>
+          <span class="bg-black/40 text-white text-xl px-2 py-1 rounded">天氣卡</span>
           <img :src="github" alt="" class="w-10 ml-2">
         </div>
       </div>
       <div class="bg-white p-2 rounded mb-2">
         <div class="bg-blue-200 w-full mx-auto  p-2 flex grid-cols-2 rounded">
-          <span class="bg-black/40 text-white text-xl px-2 py-1">購物車</span>
+          <span class="bg-black/40 text-white text-xl px-2 py-1 rounded">購物車</span>
           <img :src="github" alt="" class="w-10 ml-2">
         </div>
       </div>
       <div class="bg-white p-2 rounded mb-2">
         <div class="bg-blue-200 w-full mx-auto  p-2 flex grid-cols-2 rounded">
-          <span class="bg-black/40 text-white text-xl px-2 py-1">課務系統</span>
+          <span class="bg-black/40 text-white text-xl px-2 py-1 rounded">課務系統</span>
           <img :src="github" alt="" class="w-10 ml-2">
         </div>
       </div>
@@ -405,10 +451,11 @@ export default {
     <hr class="border-2 border-white mt-1 rounded">
     <!-- 切換按鈕 -->
     <div class="w-full h-3/4 flex flex-col pt-3 pb-5">
-      <div class="bg-white p-2 rounded">
-        <div class="bg-blue-200 w-full mx-auto  p-2 flex grid-cols-2">
-          <span class="bg-black/40 text-white text-xl px-2 py-1">遠大好農 ITOMATO</span>
-          <img :src="github" alt="" class="w-10 ml-2">
+      <div class="bg-white mx-auto p-2 rounded">
+        <div class="bg-blue-200 w-full mx-auto p-2 rounded">
+          <span class="bg-black/40 text-white text-xl px-2 py-1 inline-block rounded">遠大好農 ITOMATO</span>
+          <img :src="github" alt="" class="w-10 ml-2 z-10 inline-block">
+          <img :src="tomatoPic" alt="" class="w-[60%] mx-auto my-1 rounded">
         </div>
       </div>
     </div>
@@ -416,7 +463,7 @@ export default {
 
   <!-- Gotop -->
   <div class="fixed right-2 bottom-28 z-10 cursor-pointer sm:right-5 lg:right-8 xl:right-10"
-    :class="yScrollValue < 50 ? 'hidden' : ''" @click="goTop">
+    :class="yScrollValue < 900 ? 'hidden' : ''" @click="goTop">
     <div class="bg-red-700 p-2 px-3 text-white hover:bg-red-500 rounded-full lg:rounded-md" style="opacity:0.8">
       <span class="hidden lg:contents">GoTop</span>
       <div class="lg:hidden -rotate-90">&#10132;</div>
@@ -447,6 +494,23 @@ export default {
 </template>
 
 <style scoped>
+.typing-animation {
+  overflow: hidden;
+  border-right: .05em solid orange;
+  animation: typing 3s steps(40, end) infinite;
+  overflow-wrap: break-word;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
 .my-content {
   width: 100%;
   margin: auto;
@@ -455,7 +519,7 @@ export default {
 
 /* 頁籤點擊顯示效果 */
 .active {
-  @apply bg-white
+  background-color: white;
 }
 
 /* 卡片旋轉效果 */
@@ -481,5 +545,4 @@ export default {
 .card {
   position: relative;
 }
-
 </style>
