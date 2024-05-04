@@ -1,5 +1,6 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router';
+// import { RouterLink, RouterView } from 'vue-router';
+import myNav from './components/myNav.vue';
 import github from '@/assets/img/icon-github.png';
 import CSS from '@/assets/img/icon-CSS.png';
 import HTML from '@/assets/img/icon-HTML.png';
@@ -14,11 +15,21 @@ import slowPic from '@/assets/img/pic-slow.png';
 import tomatoPic from '@/assets/img/pic-tomato.jpg';
 
 export default {
+  components: {
+    myNav,
+  },
   data() {
     return {
+      navItems: [
+        { name: '成長軌跡', anchor: '#work' },
+        { name: '轉職初衷', anchor: '#reason' },
+        { name: '我的優勢', anchor: '#skill' },
+        { name: '個人專案', anchor: '#myProject' },
+        { name: '團體專案', anchor: '#groupProject' }
+      ],
       yScrollValue: '',
-      RouterLink,
-      RouterView,
+      // RouterLink,
+      // RouterView,
       github,
       CSS,
       HTML,
@@ -33,19 +44,24 @@ export default {
       tomatoPic,
       show: true,
       rule: 1,
-
+      arrowShow: false,
+      isClickProcessing: false,
       typedText: '',
       currentIndex: 0
     };
   },
   methods: {
     // 錨點
-    goToAnchor(area) {
-      const element = document.querySelector(area);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    },
+    // goToAnchor(area) {
+    //   const element = document.querySelector(area);
+    //   if (area === '#homePage') {
+    //     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    //     this.arrowShow = false;
+    //     this.typeWriter();
+    //   } else {
+    //     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    //   }
+    // },
 
     // 回到最上面(到header)
     goTop() {
@@ -67,6 +83,8 @@ export default {
     typeWriter() {
       const text = `Welcome to Bo-Yuan's Website！`;
       let index = 0;
+      if (this.isClickProcessing) return;
+      this.isClickProcessing = true;
 
       const intervalId = setInterval(() => {
         if (index <= text.length) {
@@ -74,10 +92,12 @@ export default {
           index++;
         } else {
           clearInterval(intervalId);
-          this.currentIndex = 0;
-          this.typeWriter();
+          setTimeout(() => {
+            this.arrowShow = true;
+          }, 200);
+          this.isClickProcessing = false;
         }
-      }, 200);
+      }, 100);
     },
   },
 
@@ -90,7 +110,11 @@ export default {
 
 <template>
   <div class="px-[25%] pt-[5%] bg-black opacity-70 h-[800px] text-center" id="homePage">
-    <span class="typing-animation text-white text-[8vw] font-bold">{{ typedText }}</span>
+    <span class="typing-animation text-white text-[8vw] font-bold leading-snug">{{ typedText }}</span>
+    <div class="text-white mt-5 hidden" :class="{ 'arrowActive': arrowShow === true }">
+      <span class="text-3xl block">Scroll Down</span>
+      <div class="arrowDown mt-3"></div>
+    </div>
   </div>
 
   <header class="bg-white/30 pl-[5%] sticky top-0 z-50 p-3 md:h-[60px]">
@@ -98,7 +122,9 @@ export default {
     <div class="relative z-10 md:flex md:justify-between">
       <span class="font-bold text-2xl md:mt-1 md:text-3xl xl:text-4xl xl:mt-0 cursor-pointer hover:text-red-500"
         @click="goToAnchor('#homePage')">Bo-Yuan's Website</span>
-      <nav
+      <myNav :items="navItems" />
+
+    <!--<nav
         class="py-1 text-center sm:teat-start grid grid-cols-3 gap-x-2 text-lg md:p-1 sm:flex sm:text-center lg:text-xl lg:gap-4 md:mt-1">
         <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#work')">成長軌跡
         </div>
@@ -110,7 +136,7 @@ export default {
         </div>
         <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#groupProject')">
           團體專案</div>
-      </nav>
+      </nav> -->
     </div>
   </header>
 
@@ -495,9 +521,9 @@ export default {
 
 <style scoped>
 .typing-animation {
-  overflow: hidden;
+  /* overflow: hidden; */
   border-right: .05em solid orange;
-  animation: typing 3s steps(40, end) infinite;
+  animation: typing 3s steps(40, end);
   overflow-wrap: break-word;
 }
 
@@ -508,6 +534,33 @@ export default {
 
   to {
     width: 100%;
+  }
+}
+
+.arrowActive {
+  @apply contents
+}
+
+.arrowDown {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 30px solid red;
+  position: relative;
+  animation: floatUpDown 2s ease-in-out infinite;
+  margin: auto;
+}
+
+@keyframes floatUpDown {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(15px);
   }
 }
 
