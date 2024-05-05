@@ -1,6 +1,6 @@
 <script>
-// import { RouterLink, RouterView } from 'vue-router';
 import myNav from './components/myNav.vue';
+import workTabs from './components/workTabs.vue';
 import github from '@/assets/img/icon-github.png';
 import CSS from '@/assets/img/icon-CSS.png';
 import HTML from '@/assets/img/icon-HTML.png';
@@ -17,6 +17,7 @@ import tomatoPic from '@/assets/img/pic-tomato.jpg';
 export default {
   components: {
     myNav,
+    workTabs,
   },
   data() {
     return {
@@ -27,9 +28,13 @@ export default {
         { name: '個人專案', anchor: '#myProject' },
         { name: '團體專案', anchor: '#groupProject' }
       ],
+      workTabs: [
+        { title: '大學期間', tabOrder: 1 },
+        { title: '初出茅廬', tabOrder: 2 },
+        { title: '轉換單位', tabOrder: 3 },
+        { title: '偏鄉工作', tabOrder: 4 },
+      ],
       yScrollValue: '',
-      // RouterLink,
-      // RouterView,
       github,
       CSS,
       HTML,
@@ -42,7 +47,6 @@ export default {
       learningPic,
       slowPic,
       tomatoPic,
-      show: true,
       rule: 1,
       arrowShow: false,
       isClickProcessing: false,
@@ -51,18 +55,6 @@ export default {
     };
   },
   methods: {
-    // 錨點
-    // goToAnchor(area) {
-    //   const element = document.querySelector(area);
-    //   if (area === '#homePage') {
-    //     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    //     this.arrowShow = false;
-    //     this.typeWriter();
-    //   } else {
-    //     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    //   }
-    // },
-
     // 回到最上面(到header)
     goTop() {
       window.scrollTo({ top: 800, behavior: 'smooth' });
@@ -71,12 +63,6 @@ export default {
     // 監聽goTop
     scrollWatch() {
       this.yScrollValue = window.scrollY;
-    },
-
-    // 成長軌跡頁籤切換
-    changeAboutPage(e) {
-      this.show = true;
-      this.rule = e;
     },
 
     // 打字動畫
@@ -98,6 +84,10 @@ export default {
           this.isClickProcessing = false;
         }
       }, 100);
+    },
+
+    updateRule(tabOrder) {
+      this.rule = tabOrder;
     },
   },
 
@@ -124,49 +114,22 @@ export default {
         @click="goToAnchor('#homePage')">Bo-Yuan's Website</span>
       <myNav :items="navItems" />
 
-    <!--<nav
-        class="py-1 text-center sm:teat-start grid grid-cols-3 gap-x-2 text-lg md:p-1 sm:flex sm:text-center lg:text-xl lg:gap-4 md:mt-1">
-        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#work')">成長軌跡
-        </div>
-        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#reason')">轉職初衷
-        </div>
-        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#skill')">我的優勢
-        </div>
-        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#myProject')">個人專案
-        </div>
-        <div class="cursor-pointer hover:border-b-2 hover:border-black font-bold" @click="goToAnchor('#groupProject')">
-          團體專案</div>
-      </nav> -->
     </div>
   </header>
-
-  <!-- <RouterView /> -->
-  <!-- ! 確定後要做的事 -->
-  <!-- todo 1.把大量重複class寫在style -->
-  <!-- todo 2.把大量重複的架構做成組件 -->
 
   <!-- !成長軌跡 -->
   <div class="my-content bg-yellow-300 h-full">
     <h1 class="text-4xl text-center sm:text-start mt-3 sm:text-5xl scroll-mt-32 md:scroll-mt-24" id="work">成長軌跡</h1>
     <hr class="border-2 border-white mt-1 ">
 
-    <!-- !時間點頁籤 -->
-    <div class="mt-5 grid gap-0.5 grid-cols-1 sm:grid-cols-4 text-center">
-      <span class="text-xl sm:text-2xl font-semibold rounded sm:rounded-t-xl sm:rounded-b-none p-2 hover:cursor-pointer"
-        @click="changeAboutPage(1)" :class="{ 'active': show === true, 'active': rule === 1 }">大學期間(102-106)</span>
-      <span class="text-xl sm:text-2xl font-semibold rounded sm:rounded-t-xl sm:rounded-b-none p-2 hover:cursor-pointer"
-        @click="changeAboutPage(2)" :class="{ 'active': show === true, 'active': rule === 2 }">初出茅廬(106-108)</span>
-      <span class="text-xl sm:text-2xl font-semibold rounded sm:rounded-t-xl sm:rounded-b-none p-2 hover:cursor-pointer"
-        @click="changeAboutPage(3)" :class="{ 'active': show === true, 'active': rule === 3 }">轉換單位(108-110)</span>
-      <span class="text-xl sm:text-2xl font-semibold rounded sm:rounded-t-xl sm:rounded-b-none p-2 hover:cursor-pointer"
-        @click="changeAboutPage(4)" :class="{ 'active': show === true, 'active': rule === 4 }">偏鄉工作(110-112)</span>
-    </div>
+    <!-- 時間點頁籤 -->
+    <workTabs :items="workTabs" @update:rule="updateRule" />
 
     <!-- !關於我內容 -->
     <div class="bg-white mt-2 sm:mt-0 h-auto w-auto p-5 rounded sm:rounded-t-none">
       <!-- !在學期間  -->
       <div v-if="rule === 1">
-        <h4 class="text-xl sm:text-3xl text-center">靜宜大學 <br class="md:hidden">社會工作與兒童少年福利學系 畢業</h4>
+        <h4 class="text-xl sm:text-3xl text-center">靜宜大學 <br class="md:hidden">社會工作與兒童少年福利學系 畢業(102.09-106.06)</h4>
 
         <div class="grid gap-x-3 gap-y-3 grid-cols-1 md:grid-cols-2 mt-4">
           <section class="flex flex-col bg-red-200 p-3 rounded">
@@ -571,9 +534,9 @@ export default {
 }
 
 /* 頁籤點擊顯示效果 */
-.active {
+/* .active {
   background-color: white;
-}
+} */
 
 /* 卡片旋轉效果 */
 .back {

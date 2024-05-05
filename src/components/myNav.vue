@@ -4,7 +4,8 @@
   sm:teat-start sm:flex sm:text-center
   md:p-1 md:mt-1
   lg:text-xl lg:gap-4 ">
-    <div v-for="(item, index) in items" :key="index" @click="goToAnchor(item.anchor)" class="cursor-pointer hover:border-b-2 hover:border-black font-bold">{{ item.name }}</div>
+    <div v-for="(item, index) in items" :key="index" @click="goToAnchor(item.anchor)"
+      class="cursor-pointer hover:border-b-2 hover:border-black font-bold">{{ item.name }}</div>
   </nav>
 </template>
 
