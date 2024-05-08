@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4 class="text-xl sm:text-3xl text-center">
+    <h4 class="text-lg xs:text-2xl sm:text-3xl text-center font-semibold sm:font-extrabold">
       {{ title }} <br>
       {{ content }} <br class="md:hidden" v-if="required">
       {{ years }}

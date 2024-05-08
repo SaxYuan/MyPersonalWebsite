@@ -1,9 +1,13 @@
 <script>
 import myNav from './components/myNav.vue';
 import workTabs from './components/workTabs.vue';
+import themeTitle from './components/themeTitle.vue';
 import workDetailsTitle from './components/workDetailsTitle.vue';
 import schoolDetailsContent from './components/schoolDetailsContent.vue';
 import workDetailsContent from './components/workDetailsContent.vue';
+import changeJob from './components/changeJob.vue';
+import myAdvantage from './components/myAdvantage.vue';
+import myProject from './components/myProject.vue';
 import github from '@/assets/img/icon-github.png';
 import CSS from '@/assets/img/icon-CSS.png';
 import HTML from '@/assets/img/icon-HTML.png';
@@ -20,10 +24,14 @@ import tomatoPic from '@/assets/img/pic-tomato.jpg';
 export default {
   components: {
     myNav,
+    themeTitle,
     workTabs,
     workDetailsTitle,
     schoolDetailsContent,
     workDetailsContent,
+    changeJob,
+    myAdvantage,
+    myProject,
   },
   data() {
     return {
@@ -37,7 +45,7 @@ export default {
       workTabs: [
         { title: '大學期間', tabOrder: 1 },
         { title: '初出茅廬', tabOrder: 2 },
-        { title: '轉換單位', tabOrder: 3 },
+        { title: '新的挑戰', tabOrder: 3 },
         { title: '偏鄉工作', tabOrder: 4 },
       ],
       schoolExperiences: {
@@ -45,15 +53,15 @@ export default {
           {
             title: '1.管樂社(102-106)',
             details: [
-              '103-104 譜務長-樂團藏譜管理',
-              '103-106 聲部長-督導聲部成員',
-              '105       執行秘書-處理樂團行政庶務'
+              '103-104 譜務長-管理樂團藏譜',
+              '103-106 聲部長-掌握聲部成員練習狀況',
+              '105-106 執行秘書-處理樂團行政庶務'
             ]
           },
           {
             title: '2.服務隊(102-104)',
             details: [
-              '文編進修股-負責文書庶務、辦理進修課程等',
+              '文編進修股-負責隊上文書庶務、辦理進修課程等',
             ]
           },
           {
@@ -108,33 +116,34 @@ export default {
       workExperiences: {
         first: {
           workContent: [
-            { title: '1.協助住民日常生活照顧(如翻身、移位、排泄、進食、身體清潔等)' }
+            { title: '1.協助住民日常生活照顧(如翻身移位、排泄、進食、身體清潔等)' }
           ],
           challenges: [
             {
               title: '1.照顧技巧與知識不足',
               details: [
-                '社工養成較少提及照顧技巧、疾病，因此初期花費許多時間在學習照顧技巧及常見疾病與應對的知識。'
+                '社工養成較少提及照顧技巧、疾病，因此初期大約花費3個月的時間，與同事學習照顧技巧及常見疾病與應對的知識。'
               ]
             },
             {
               title: '2.輪班制度及與同事間的合作',
               details: [
-                '機構為輪班制，因此需熟悉各班別的工作流程，且因共事的同事不固定，因此需要有良好的默契，才能在突發狀況發生時能及時應變處理。'
+                '機構為輪班制，能熟悉各班別的工作流程，且與同事間有良好默契，能及時處理突發狀況，並依狀況彈性調整工作流程。'
               ]
             },
             {
               title: '3.需與跨專業人員溝通',
               details: [
-                '當有個別住民狀況需要與醫事人員(如護理師、物理治療師、營養師等)討論時，需描述狀況詳細予醫事人員，才能進行有效的討論。'
+                '需與醫事人員(如護理師、物理治療師、營養師等)討論住民狀況時，需描述狀況詳細予醫事人員，才能進行有效的討論，因此需對住民狀況有詳細觀察，並對各種專業有基礎認識。'
               ]
             }
           ],
           achievements: [
             { title: '1.扎實的照顧技巧' },
-            { title: '2.瞭解常見疾病與如何應對' },
+            { title: '2.瞭解常見疾病及處理方式' },
             { title: '3.與跨專業人員的溝通' },
-            { title: '4.臨機應變的能力' }
+            { title: '4.臨機應變的能力' },
+            { title: '5.團隊合作的能力' }
           ]
         },
         second: {
@@ -145,7 +154,7 @@ export default {
             {
               title: '1.個別化的服務',
               details: [
-                '居家服務需依照案家需求提供照顧服務，因此沒有固定的工作流程，需在每次的服務中因著個案的回饋進行調整，以滿足個案的需求。'
+                '居家服務需依照案家需求提供照顧服務，因此沒有固定的工作流程，需在每次的服務中因個案的回饋進行調整，以滿足個案的需求。'
               ]
             },
             {
@@ -157,8 +166,8 @@ export default {
           ],
           achievements: [
             { title: '1.提供以人為本的照顧服務' },
-            { title: '2.培養見微知著的能力' },
-            { title: '3.訓練獨立思考的能力' },
+            { title: '2.見微知著的能力' },
+            { title: '3.獨立思考的能力' },
           ]
         },
         third: {
@@ -171,9 +180,9 @@ export default {
           ],
           challenges: [
             {
-              title: '1.偏鄉幅員遼闊且資源缺乏',
+              title: '1.講求自我時間管理的工作',
               details: [
-                '單位位於台中市和平區，因幅員遼闊，所以交通的時間成本增加許多，也因此較少單位願意提供服務。'
+                '為確保個案權益，個管員需在三天內完成訪視、照顧計畫撰寫及審核、資源連結、每月需追蹤所有主責個案的狀況(約150-160案，合理案量為120案)等，加上單位位於台中市和平區，因幅員遼闊導致交通時間成本增加，因此需有良好的時間管理能力，才能應對繁重的工作。'
               ]
             },
             {
@@ -183,18 +192,35 @@ export default {
               ]
             },
             {
-              title: '3.高壓的工作',
+              title: '3.負責培訓帶領新人的任務',
               details: [
-                '為確保個案權益，個管員需在三天內完成訪視、照顧計畫撰寫及審核、資源連結等工作，此外每月需追蹤所有主責個案的狀況(約150-160案，合理案量為120案)，因此需要在高壓力下完成工作。'
+                '成功地培訓了兩位新進同事，在為期三至四個月的培訓後，皆能具備了獨立作業的能力，期間也需因應個別狀況，提供不同的教學方式。'
               ]
             },
           ],
           achievements: [
             { title: '1.良好的時間管理能力' },
             { title: '2.發現問題與需求能力' },
-            { title: '3.溝通協調能力' },
+            { title: '3.豐富的溝通協調能力' },
           ]
         },
+      },
+      myAdvantage: {
+        personal: [
+          { itemTitle: '樂於分享及傾聽', itemContent: '能與同事建立良好的關係，進而促進穩定的團隊合作' },
+          { itemTitle: '對事情充滿好奇', itemContent: '驅使我不斷地尋求新的知識，以及解決問題的方法' },
+          { itemTitle: '勇於嘗試與學習', itemContent: '我能夠快速適應新的工作環境和挑戰' },
+          { itemTitle: '樂觀且情緒穩定', itemContent: '使我能夠在壓力下保持冷靜，並積極面對困難' },
+          { itemTitle: '具備獨立思考能力', itemContent: '能夠獨立解決問題並提出創新的想法，為團隊帶來更多價值' },
+        ],
+        experience: [
+          { itemTitle: '豐富的團隊合作經驗', itemContent: '能夠有效地與團隊成員合作，共同達成目標' },
+          { itemTitle: '具備良好的時間管理能力', itemContent: '能夠有效地安排工作順序，確保任務按時完成' },
+          { itemTitle: '我做事能夠保持彈性', itemContent: '能夠靈活應對不同的工作情況和需求，以確保工作的順利進行' },
+          { itemTitle: '我抗壓性高', itemContent: '能夠在壓力下保持冷靜，並有效地應對各種挑戰和困難' },
+        ],
+        webDevelope:
+          [CSS, HTML, JS, Tailwind, Vue, Bootstrap, Laravel, github],
       },
       yScrollValue: '',
       github,
@@ -261,11 +287,16 @@ export default {
 </script>
 
 <template>
-  <div class="px-[25%] pt-[5%] bg-black opacity-70 h-[800px] text-center" id="homePage">
-    <span class="typing-animation text-white text-[8vw] font-bold leading-snug">{{ typedText }}</span>
-    <div class="text-white mt-5 hidden" :class="{ 'arrowActive': arrowShow === true }">
-      <span class="text-3xl block">Scroll Down</span>
-      <div class="arrowDown mt-3"></div>
+  <div
+    class="px-[15%] pt-[50%] bg-black opacity-70 h-[800px] text-center xs:pt-[30%] md:pt-[20%] lg:pt-[10%] xl:pt-[2%]"
+    id="homePage">
+    <span
+      class="
+    typing-animation text-white text-[40px] font-extrabold leading-loose xs:text-[10vw] sm:leading-snug sm:font-bold lg:text-[9vw]">{{
+      typedText }}</span>
+    <div class="text-white hidden" :class="{ 'arrowActive': arrowShow === true }">
+      <span class="text-3xl block mt-16 sm:mt-4">Scroll Down</span>
+      <div class="arrowDown"></div>
     </div>
   </div>
 
@@ -280,8 +311,7 @@ export default {
 
   <!-- !成長軌跡 -->
   <div class="my-content bg-yellow-300 h-full">
-    <h1 class="text-4xl text-center sm:text-start mt-3 sm:text-5xl scroll-mt-32 md:scroll-mt-24" id="work">成長軌跡</h1>
-    <hr class="border-2 border-white mt-1 ">
+    <themeTitle title="成長軌跡" itemId="work" />
 
     <workTabs :items="workTabs" @update:rule="updateRule" />
 
@@ -290,162 +320,81 @@ export default {
       <div v-if="rule === 1">
         <workDetailsTitle title="靜宜大學" content="社會工作與兒童少年福利學系 畢業" years="(102.09-106.06)" required />
         <div class="grid gap-x-3 gap-y-3 grid-cols-1 md:grid-cols-2 mt-4">
-          <schoolDetailsContent :title="'社團與幹部經驗'" :bgColor="'bg-red-200'" :experiences="schoolExperiences.club" />
-          <schoolDetailsContent :title="'志願服務'" :bgColor="'bg-blue-200'" :experiences="schoolExperiences.volunteer" />
-          <schoolDetailsContent :title="'競賽：全國學生音樂比賽'" :bgColor="'bg-yellow-200'"
+          <schoolDetailsContent title="社團與幹部經驗" :bgColor="'bg-red-200'" :experiences="schoolExperiences.club" />
+          <schoolDetailsContent title="志願服務" :bgColor="'bg-blue-200'" :experiences="schoolExperiences.volunteer" />
+          <schoolDetailsContent title="競賽：全國學生音樂比賽" :bgColor="'bg-yellow-200'"
             :experiences="schoolExperiences.competition" />
-          <schoolDetailsContent :title="'講師經歷'" :bgColor="'bg-green-200'" :experiences="schoolExperiences.teacher" />
+          <schoolDetailsContent title="講師經歷" :bgColor="'bg-green-200'" :experiences="schoolExperiences.teacher" />
         </div>
       </div>
 
       <!-- 初出茅廬 -->
       <div v-else-if="rule === 2">
         <workDetailsTitle class=" " title="仁馨護理之家" content="照顧服務員" years="(106.08-108.04)" required />
-        <workDetailsContent :title="'工作內容'" :bgColor="'bg-yellow-200'" :items="workExperiences.first.workContent" />
-        <workDetailsContent :title="'困境挑戰'" :bgColor="'bg-red-200'" :items="workExperiences.first.challenges" />
-        <workDetailsContent :title="'收穫'" :bgColor="'bg-green-200'" :items="workExperiences.first.achievements" />
+        <workDetailsContent title="工作內容" :bgColor="'bg-yellow-200'" :items="workExperiences.first.workContent" />
+        <workDetailsContent title="困境挑戰" :bgColor="'bg-red-200'" :items="workExperiences.first.challenges" />
+        <workDetailsContent title="收穫" :bgColor="'bg-green-200'" :items="workExperiences.first.achievements" />
       </div>
 
       <!-- 初出茅廬2 -->
       <div v-else-if="rule === 3">
         <workDetailsTitle class=" " title="美家人力資源股份有限公司" content="照顧服務員" years="(108.05-110.02)" required />
-        <workDetailsContent :title="'工作內容'" :bgColor="'bg-yellow-200'" :items="workExperiences.second.workContent" />
-        <workDetailsContent :title="'困境挑戰'" :bgColor="'bg-red-200'" :items="workExperiences.second.challenges" />
-        <workDetailsContent :title="'收穫'" :bgColor="'bg-green-200'" :items="workExperiences.second.achievements" />
+        <workDetailsContent title="工作內容" :bgColor="'bg-yellow-200'" :items="workExperiences.second.workContent" />
+        <workDetailsContent title="困境挑戰" :bgColor="'bg-red-200'" :items="workExperiences.second.challenges" />
+        <workDetailsContent title="收穫" :bgColor="'bg-green-200'" :items="workExperiences.second.achievements" />
       </div>
 
       <!-- 初出茅廬3 -->
       <div v-else-if="rule === 4">
         <workDetailsTitle class=" " title="有限責任台灣伯拉罕共生照顧勞動合作社私立伯拉罕居家長照機構" content="個案管理員" years="(110.02-112.06)"
           required />
-        <workDetailsContent :title="'工作內容'" :bgColor="'bg-yellow-200'" :items="workExperiences.third.workContent" />
-        <workDetailsContent :title="'困境挑戰'" :bgColor="'bg-red-200'" :items="workExperiences.third.challenges" />
-        <workDetailsContent :title="'收穫'" :bgColor="'bg-green-200'" :items="workExperiences.third.achievements" />
+        <workDetailsContent title="工作內容" :bgColor="'bg-yellow-200'" :items="workExperiences.third.workContent" />
+        <workDetailsContent title="困境挑戰" :bgColor="'bg-red-200'" :items="workExperiences.third.challenges" />
+        <workDetailsContent title="收穫" :bgColor="'bg-green-200'" :items="workExperiences.third.achievements" />
       </div>
     </div>
 
-    <!-- !轉職初衷 -->
-    <!-- todo hover顯示內容 -->
-    <section>
-      <h1 class="text-4xl text-center sm:text-start sm:text-5xl mt-9 scroll-mt-32 md:scroll-mt-24" id="reason">轉職初衷</h1>
-      <hr class="border-2 border-white mt-1">
+    <!-- 轉職初衷 -->
+    <section class="my-9">
+      <themeTitle title="轉職初衷" itemId="reason" />
 
       <div class="mt-3 bg-white h-[700px] md:h-[350px] lg:h-[300px] p-2 grid gap-2 md:grid-cols-3 rounded">
-        <div class="card rounded-3xl text-3xl text-center ">
-          <div class="font text-3xl bg-red-200 h-full w-full p-5 rounded-2xl font-bold">使用Excel引發寫程式興趣
-            <img :src="codingPic" alt="我是插圖" class="card w-[100px] h-[100px] mx-auto sm:mt-5  lg:mt-9">
-          </div>
-          <div class="back text-2xl bg-blue-200 h-full w-full p-5 rounded-2xl text-start sm:p-9 xl:text-3xl">
-            曾多次用Excel編寫程式，協助自己與同事提升工作效率，並從中引發寫程式的興趣。</div>
-        </div>
-        <div class="card rounded-3xl text-3xl text-center ">
-          <div class="font text-3xl bg-red-200 h-full w-full p-5 rounded-2xl lg:pt-9 font-bold">樂於學習新事物
-            <img :src="learningPic" alt="我是插圖" class="card w-[100px] h-[100px] mx-auto mt-5 lg:mt-9">
-          </div>
-          <div class="back text-2xl bg-blue-200 h-full w-full p-5 rounded-2xl text-start sm:p-9 xl:text-3xl">
-            對於有興趣的事情，會利用閒暇時間學習，並運用在生活或工作上。</div>
-        </div>
-        <div class="card rounded-3xl text-3xl text-center">
-          <div class="font text-3xl bg-red-200 h-full w-full p-5 rounded-2xl lg:pt-9 font-bold">原領域成長趨緩
-            <img :src="slowPic" alt="我是插圖" class="card w-[100px] h-[100px] mx-auto mt-5 lg:mt-9">
-          </div>
-          <div class="back text-2xl bg-blue-200 h-full w-full p-5 rounded-2xl text-start sm:p-9 xl:text-3xl">
-            能遊刃有餘地處理工作事務，並能獨自帶領新進人員，自覺成長速度已趨緩。
-          </div>
-        </div>
+        <changeJob title="使用Excel引發寫程式興趣" :picture="codingPic" content="曾多次用Excel編寫程式，協助自己與同事提升工作效率，並從中引發寫程式的興趣。" />
+        <changeJob title="樂於學習新事物" :picture="learningPic" content="對於有興趣的事情，我會利用閒暇時間不斷學習，並將所學應用於生活或工作中。" />
+        <changeJob title="原領域成長趨緩" :picture="slowPic" content="能遊刃有餘地處理工作事務，並能獨自帶領新進人員，自覺成長速度已趨緩。" />
       </div>
     </section>
 
-    <!-- !個人技能:現在的我 -->
-    <!-- todo hover 123 -->
+    <!-- 個人優勢 -->
     <section class="my-9">
-      <h1 class="text-4xl text-center sm:text-start sm:text-5xl mt-9 scroll-mt-32 md:scroll-mt-24" id="skill">我的優勢</h1>
-      <hr class="border-2 border-white mt-1">
+      <themeTitle title="我的優勢" itemId="skill" />
+
       <div class="mt-3 bg-white p-2 grid gap-2 lg:grid-cols-3 rounded">
-        <div class="bg-red-300/80 rounded-2xl text-xl text-center p-5">
-          <span class="text-3xl font-bold">個人特質</span>
-          <ul class="mt-3 ml-53 text-start">
-            <li>1.樂於分享與傾聽</li>
-            <li>2.對事情充滿好奇</li>
-            <li>3.勇於嘗試與學習</li>
-            <li>4.樂觀且情緒穩定</li>
-            <li>5.有獨立思考能力</li>
-          </ul>
-        </div>
-        <div class="bg-red-300/80 rounded-2xl text-xl text-center p-5">
-          <span class="text-3xl font-bold">經驗累積</span>
-          <ul class="mt-3 ml-3 text-start">
-            <li>1.豐富跨專業、跨部門合作與溝通</li>
-            <li>2.良好的時間管理能力</li>
-            <li>3.做事能保有彈性</li>
-            <li>4.抗壓性高</li>
-            <li>5.</li>
-          </ul>
-        </div>
-        <div class="bg-red-300/80 rounded-2xl text-xl text-center p-5">
-          <span class="text-3xl font-bold">網頁開發</span>
-          <div class="mt-3 grid grid-cols-4 items-center gap-3 px-3">
-            <img :src="CSS" alt="CSS" class="">
-            <img :src="HTML" alt="HTML" class="">
-            <img :src="JS" alt="JS" class="">
-            <img :src="Bootstrap" alt="Bootstrap" class="">
-            <img :src="Vue" alt="Vue" class="">
-            <img :src="Tailwind" alt="Tailwind" class="">
-            <img :src="Laravel" alt="Laravel" class="">
-            <img :src="github" alt="github" class="">
-          </div>
-        </div>
+        <myAdvantage :title="'個人特質'" :bgColor="'bg-red-300/80'" :items="myAdvantage.personal" />
+        <myAdvantage :title="'經驗累積'" :bgColor="'bg-blue-300/80'" :items="myAdvantage.experience" />
+        <myAdvantage :title="'網頁開發'" :bgColor="'bg-green-300/80'" :pictures="myAdvantage.webDevelope" required />
       </div>
     </section>
   </div>
 
-  <!-- !個人專案 -->
+  <!-- 個人專案 -->
   <section class="my-content bg-orange-300">
-    <h5 class="text-4xl sm:text-5xl text-center sm:text-start scroll-mt-32 md:scroll-mt-24 mt-3" id="myProject">個人專案
-    </h5>
-    <hr class="border-2 border-white mt-1 rounded">
+    <themeTitle title="個人專案" itemId="myProject" />
 
     <div class=" w-full h-3/4 pt-3 pb-5 lg:grid lg:grid-cols-2 lg:gap-5">
-      <div class="bg-white p-2 rounded mb-2">
-        <div class="bg-blue-200 w-full mx-auto  p-2 flex grid-cols-2 rounded">
-          <span class="bg-black/40 text-white text-xl px-2 py-1 rounded">TodoList</span>
-          <img :src="github" alt="" class="w-10 ml-2">
-        </div>
-      </div>
-      <div class="bg-white p-2 rounded mb-2">
-        <div class="bg-blue-200 w-full mx-auto  p-2 flex grid-cols-2 rounded">
-          <span class="bg-black/40 text-white text-xl px-2 py-1 rounded">天氣卡</span>
-          <img :src="github" alt="" class="w-10 ml-2">
-        </div>
-      </div>
-      <div class="bg-white p-2 rounded mb-2">
-        <div class="bg-blue-200 w-full mx-auto  p-2 flex grid-cols-2 rounded">
-          <span class="bg-black/40 text-white text-xl px-2 py-1 rounded">購物車</span>
-          <img :src="github" alt="" class="w-10 ml-2">
-        </div>
-      </div>
-      <div class="bg-white p-2 rounded mb-2">
-        <div class="bg-blue-200 w-full mx-auto  p-2 flex grid-cols-2 rounded">
-          <span class="bg-black/40 text-white text-xl px-2 py-1 rounded">課務系統</span>
-          <img :src="github" alt="" class="w-10 ml-2">
-        </div>
-      </div>
+      <myProject name="TodoList" href="" />
+      <myProject name="天氣卡" href="https://github.com/Bo-Yuan" />
+      <myProject name="購物車" href="https://github.com/Bo-Yuan" />
+      <myProject name="課務系統" href="https://github.com/Bo-Yuan" :picture="tomatoPic" />
     </div>
   </section>
 
-  <!-- !團體專案 -->
+  <!-- 團體專案 -->
   <section class="my-content bg-orange-300">
-    <h5 class="text-4xl text-center sm:text-start sm:text-5xl scroll-mt-32 md:scroll-mt-24" id="groupProject">團體專案</h5>
-    <hr class="border-2 border-white mt-1 rounded">
-    <!-- 切換按鈕 -->
+    <themeTitle title="團體專案" itemId="groupProject" />
+
     <div class="w-full h-3/4 flex flex-col pt-3 pb-5">
-      <div class="bg-white mx-auto p-2 rounded">
-        <div class="bg-blue-200 w-full mx-auto p-2 rounded">
-          <span class="bg-black/40 text-white text-xl px-2 py-1 inline-block rounded">遠大好農 ITOMATO</span>
-          <img :src="github" alt="" class="w-10 ml-2 z-10 inline-block">
-          <img :src="tomatoPic" alt="" class="w-[60%] mx-auto my-1 rounded">
-        </div>
-      </div>
+      <myProject name="遠大好農 ITOMATO" href="https://github.com/Bo-Yuan" :picture="tomatoPic" />
     </div>
   </section>
 
@@ -463,9 +412,8 @@ export default {
     <address class="sm:grid sm:grid-cols-2 sm:text-center">
       <div class="pl-3">
         <a href="mailto:saxhundred@gmail.com" title="寄信給我" class="inline-block">
-          <i class="fa-regular fa-envelope"></i>
+          <span class="ml-2 w-5 inline-block">saxhundred@gmail.com</span>
         </a>
-        <span class="ml-2 w-5 inline-block">saxhundred@gmail.com</span>
       </div>
       <div class="pl-3">
         <a href="https://github.com/SaxYuan" target="_blank" title="連結至我的GitHub(另開分頁)" class="inline-block">
@@ -474,8 +422,8 @@ export default {
         <span class=" ml-2">SaxYuan</span>
       </div>
       <div class="text-center my-2 col-span-2">
-        <span class="font-semibold sm:hidden ">Copyright © 2024 洪伯元</span>
-        <span class="font-semibold hidden sm:contents">Copyright © 2024 洪伯元 All rights reserved.</span>
+        <span class="font-semibold sm:hidden ">Copyright © 2024 Bo-Yuan,Hong</span>
+        <span class="font-semibold hidden sm:contents">Copyright © 2024 Bo-Yuan,Hong All rights reserved.</span>
       </div>
     </address>
   </footer>
@@ -518,11 +466,11 @@ export default {
 
   0%,
   100% {
-    transform: translateY(0);
+    transform: translateY(5px);
   }
 
   50% {
-    transform: translateY(15px);
+    transform: translateY(20px);
   }
 }
 
@@ -530,29 +478,5 @@ export default {
   width: 100%;
   margin: auto;
   padding: 2% 10%;
-}
-
-/* 卡片旋轉效果 */
-.back {
-  transform: rotateY(-180deg);
-}
-
-.card:hover .font {
-  transform: rotateY(180deg);
-}
-
-.card:hover .back {
-  transform: rotateY(0);
-}
-
-.font,
-.back {
-  backface-visibility: hidden;
-  position: absolute;
-  transition: all 0.5s;
-}
-
-.card {
-  position: relative;
 }
 </style>
