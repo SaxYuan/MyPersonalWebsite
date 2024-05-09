@@ -381,9 +381,9 @@ export default {
       <themeTitle title="我的優勢" itemId="skill" />
 
       <div class="mt-3 bg-white p-3 grid gap-2 lg:grid-cols-3 rounded">
-        <myAdvantage :title="'個人特質'" :bgColor="'bg-red-300/80'" :items="myAdvantage.personal" />
-        <myAdvantage :title="'經驗累積'" :bgColor="'bg-blue-300/80'" :items="myAdvantage.experience" />
-        <myAdvantage :title="'網頁開發'" :bgColor="'bg-green-300/80'" :pictures="myAdvantage.webDevelope" required />
+        <myAdvantage :title="'個人特質'" :bgColor="'bg-red-200/80'" :items="myAdvantage.personal" />
+        <myAdvantage :title="'經驗累積'" :bgColor="'bg-blue-200/80'" :items="myAdvantage.experience" />
+        <myAdvantage :title="'網頁開發'" :bgColor="'bg-green-200/80'" :pictures="myAdvantage.webDevelope" required />
       </div>
     </section>
   </div>
