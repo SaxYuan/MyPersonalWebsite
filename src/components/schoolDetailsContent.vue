@@ -1,8 +1,8 @@
 <template>
   <section :class="bgColor + ' p-3 rounded'">
-    <h2 class="text-2xl font-black sm:text-3xl">{{ title }}</h2>
+    <h2 class="text-2xl font-semibold sm:text-3xl">{{ title }}</h2>
     <template v-for="(experience, index) in experiences" :key="index">
-      <h3 class="text-xl mt-2 font-semibold sm:text-2xl">{{ experience.title }}</h3>
+      <h3 class="text-xl mt-2 font-medium sm:text-2xl">{{ experience.title }}</h3>
       <div v-for="(detail, detailIndex) in experience.details" :key="detailIndex" class="ml-3 text-md sm:ml-6 sm:text-xl">{{ detail }}</div>
     </template>
   </section>

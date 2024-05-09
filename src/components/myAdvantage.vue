@@ -1,9 +1,9 @@
 <template>
   <div :class="bgColor + ' rounded-2xl text-xl text-center p-5'">
     <div>
-      <span class="text-2xl sm:text-3xl font-semibold">{{ title }}</span>
+      <span class="text-2xl sm:text-3xl font-medium">{{ title }}</span>
       <ul class="mt-1 text-start" v-for="(item, index) in items" :key="'item-' + index">
-        <li class="text-xl sm:text-2xl font-bold">{{ index + 1 }}. {{ item.itemTitle }}</li>
+        <li class="text-xl sm:text-2xl font-semibold">{{ index + 1 }}. {{ item.itemTitle }}</li>
         <li class="text-lg sm:text-xl ml-3 sm:ml-6">{{ item.itemContent }}</li>
       </ul>
     </div>

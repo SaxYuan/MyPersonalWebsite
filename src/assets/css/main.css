@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body :lang(zh) {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+body :lang(en) {
+  font-family: "Ubuntu Sans", sans-serif;
+}

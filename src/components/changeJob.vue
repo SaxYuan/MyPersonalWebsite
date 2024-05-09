@@ -1,10 +1,10 @@
 <template>
   <div class="card rounded-3xl text-3xl text-center">
-    <div class="font text-3xl bg-red-200 h-full w-full p-5 rounded-2xl font-bold pt-12">{{ title }}
+    <div class="font text-3xl bg-indigo-300/60 h-full w-full p-5 rounded-2xl font-bold pt-12">{{ title }}
       <img :src="picture" alt="我是插圖" class="card w-[100px] h-[100px] mx-auto sm:mt-5 lg:mt-9">
     </div>
-    <div class="back text-2xl bg-blue-200 h-full w-full p-5 rounded-2xl text-start sm:p-8 xl:text-3xl">
-      <span class="leading-relaxed">{{ content }}</span>
+    <div class="back text-2xl bg-indigo-300/60 h-full w-full p-5 rounded-2xl text-start sm:p-8 xl:text-3xl">
+      <span class="leading-relaxed md:leading-snug xl:leading-relaxed text-slate-700">{{ content }}</span>
     </div>
   </div>
 </template>

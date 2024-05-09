@@ -194,7 +194,7 @@ export default {
             {
               title: '3.負責培訓帶領新人的任務',
               details: [
-                '成功地培訓了兩位新進同事，在為期三至四個月的培訓後，皆能具備了獨立作業的能力，期間也需因應個別狀況，提供不同的教學方式。'
+                '成功地培訓了兩位新進同事，在為期三至四個月的培訓後，皆能具備獨立作業的能力，期間也需因應個別狀況，提供不同的教學方式。'
               ]
             },
           ],
@@ -209,15 +209,15 @@ export default {
         personal: [
           { itemTitle: '樂於分享及傾聽', itemContent: '能與同事建立良好的關係，進而促進穩定的團隊合作' },
           { itemTitle: '對事情充滿好奇', itemContent: '驅使我不斷地尋求新的知識，以及解決問題的方法' },
-          { itemTitle: '勇於嘗試與學習', itemContent: '我能夠快速適應新的工作環境和挑戰' },
-          { itemTitle: '樂觀且情緒穩定', itemContent: '使我能夠在壓力下保持冷靜，並積極面對困難' },
-          { itemTitle: '具備獨立思考能力', itemContent: '能夠獨立解決問題並提出創新的想法，為團隊帶來更多價值' },
+          { itemTitle: '勇於嘗試與學習', itemContent: '能快速適應新的工作環境和挑戰' },
+          { itemTitle: '樂觀且情緒穩定', itemContent: '能在壓力下保持冷靜，並積極面對困難' },
+          { itemTitle: '具備獨立思考能力', itemContent: '能獨立解決問題並提出創新的想法，為團隊帶來更多價值' },
         ],
         experience: [
-          { itemTitle: '豐富的團隊合作經驗', itemContent: '能夠有效地與團隊成員合作，共同達成目標' },
-          { itemTitle: '具備良好的時間管理能力', itemContent: '能夠有效地安排工作順序，確保任務按時完成' },
-          { itemTitle: '我做事能夠保持彈性', itemContent: '能夠靈活應對不同的工作情況和需求，以確保工作的順利進行' },
-          { itemTitle: '我抗壓性高', itemContent: '能夠在壓力下保持冷靜，並有效地應對各種挑戰和困難' },
+          { itemTitle: '豐富的團隊合作經驗', itemContent: '能有效地與團隊成員合作，共同達成目標' },
+          { itemTitle: '具備良好的時間管理能力', itemContent: '能有效地安排工作順序，確保任務按時完成' },
+          { itemTitle: '我做事能夠保持彈性', itemContent: '能靈活應對不同的工作情況和需求，以確保工作的順利進行' },
+          { itemTitle: '我抗壓性高', itemContent: '能在壓力下保持冷靜，並有效地應對各種挑戰和困難' },
         ],
         webDevelope:
           [CSS, HTML, JS, Tailwind, Vue, Bootstrap, Laravel, github],
@@ -277,6 +277,17 @@ export default {
     updateRule(tabOrder) {
       this.rule = tabOrder;
     },
+
+    goToAnchor(area) {
+      const element = document.querySelector(area);
+      if (area === '#homePage') {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        this.arrowShow = false;
+        this.typeWriter();
+      } else {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    },
   },
 
   mounted() {
@@ -288,7 +299,7 @@ export default {
 
 <template>
   <div
-    class="px-[15%] pt-[50%] bg-black opacity-70 h-[800px] text-center xs:pt-[30%] md:pt-[20%] lg:pt-[10%] xl:pt-[2%]"
+    class="px-[18%] pt-[50%] bg-black opacity-70 h-[800px] text-center xs:pt-[30%] md:pt-[20%] lg:pt-[10%] xl:pt-[2%]"
     id="homePage">
     <span
       class="
@@ -310,55 +321,55 @@ export default {
   </header>
 
   <!-- !成長軌跡 -->
-  <div class="my-content bg-yellow-300 h-full">
+  <div class="my-content bg-amber-300/40 mt-40 h-full">
     <themeTitle title="成長軌跡" itemId="work" />
 
     <workTabs :items="workTabs" @update:rule="updateRule" />
 
-    <div class="bg-white mt-2 sm:mt-0 h-auto w-auto p-5 rounded sm:rounded-t-none">
+    <div class="bg-white mt-2 sm:mt-0 h-auto w-auto p-3 rounded sm:rounded-t-none">
       <!-- 大學期間  -->
       <div v-if="rule === 1">
         <workDetailsTitle title="靜宜大學" content="社會工作與兒童少年福利學系 畢業" years="(102.09-106.06)" required />
         <div class="grid gap-x-3 gap-y-3 grid-cols-1 md:grid-cols-2 mt-4">
-          <schoolDetailsContent title="社團與幹部經驗" :bgColor="'bg-red-200'" :experiences="schoolExperiences.club" />
-          <schoolDetailsContent title="志願服務" :bgColor="'bg-blue-200'" :experiences="schoolExperiences.volunteer" />
-          <schoolDetailsContent title="競賽：全國學生音樂比賽" :bgColor="'bg-yellow-200'"
+          <schoolDetailsContent title="社團與幹部經驗" :bgColor="'bg-red-200/80'" :experiences="schoolExperiences.club" />
+          <schoolDetailsContent title="志願服務" :bgColor="'bg-blue-200/80'" :experiences="schoolExperiences.volunteer" />
+          <schoolDetailsContent title="競賽：全國學生音樂比賽" :bgColor="'bg-yellow-200/80'"
             :experiences="schoolExperiences.competition" />
-          <schoolDetailsContent title="講師經歷" :bgColor="'bg-green-200'" :experiences="schoolExperiences.teacher" />
+          <schoolDetailsContent title="講師經歷" :bgColor="'bg-green-200/80'" :experiences="schoolExperiences.teacher" />
         </div>
       </div>
 
       <!-- 初出茅廬 -->
       <div v-else-if="rule === 2">
         <workDetailsTitle class=" " title="仁馨護理之家" content="照顧服務員" years="(106.08-108.04)" required />
-        <workDetailsContent title="工作內容" :bgColor="'bg-yellow-200'" :items="workExperiences.first.workContent" />
-        <workDetailsContent title="困境挑戰" :bgColor="'bg-red-200'" :items="workExperiences.first.challenges" />
-        <workDetailsContent title="收穫" :bgColor="'bg-green-200'" :items="workExperiences.first.achievements" />
+        <workDetailsContent title="工作內容" :bgColor="'bg-yellow-200/80'" :items="workExperiences.first.workContent" />
+        <workDetailsContent title="困境挑戰" :bgColor="'bg-red-200/80'" :items="workExperiences.first.challenges" />
+        <workDetailsContent title="收穫" :bgColor="'bg-green-200/80'" :items="workExperiences.first.achievements" />
       </div>
 
       <!-- 初出茅廬2 -->
       <div v-else-if="rule === 3">
         <workDetailsTitle class=" " title="美家人力資源股份有限公司" content="照顧服務員" years="(108.05-110.02)" required />
-        <workDetailsContent title="工作內容" :bgColor="'bg-yellow-200'" :items="workExperiences.second.workContent" />
-        <workDetailsContent title="困境挑戰" :bgColor="'bg-red-200'" :items="workExperiences.second.challenges" />
-        <workDetailsContent title="收穫" :bgColor="'bg-green-200'" :items="workExperiences.second.achievements" />
+        <workDetailsContent title="工作內容" :bgColor="'bg-yellow-200/80'" :items="workExperiences.second.workContent" />
+        <workDetailsContent title="困境挑戰" :bgColor="'bg-red-200/80'" :items="workExperiences.second.challenges" />
+        <workDetailsContent title="收穫" :bgColor="'bg-green-200/80'" :items="workExperiences.second.achievements" />
       </div>
 
       <!-- 初出茅廬3 -->
       <div v-else-if="rule === 4">
         <workDetailsTitle class=" " title="有限責任台灣伯拉罕共生照顧勞動合作社私立伯拉罕居家長照機構" content="個案管理員" years="(110.02-112.06)"
           required />
-        <workDetailsContent title="工作內容" :bgColor="'bg-yellow-200'" :items="workExperiences.third.workContent" />
-        <workDetailsContent title="困境挑戰" :bgColor="'bg-red-200'" :items="workExperiences.third.challenges" />
-        <workDetailsContent title="收穫" :bgColor="'bg-green-200'" :items="workExperiences.third.achievements" />
+        <workDetailsContent title="工作內容" :bgColor="'bg-yellow-200/80'" :items="workExperiences.third.workContent" />
+        <workDetailsContent title="困境挑戰" :bgColor="'bg-red-200/80'" :items="workExperiences.third.challenges" />
+        <workDetailsContent title="收穫" :bgColor="'bg-green-200/80'" :items="workExperiences.third.achievements" />
       </div>
     </div>
 
     <!-- 轉職初衷 -->
     <section class="my-9">
-      <themeTitle title="轉職初衷" itemId="reason" />
+      <themeTitle title="轉職初衷" itemId="reason" required />
 
-      <div class="mt-3 bg-white h-[700px] md:h-[350px] lg:h-[300px] p-2 grid gap-2 md:grid-cols-3 rounded">
+      <div class="mt-3 bg-white h-[700px] md:h-[350px] lg:h-[300px] p-3 grid gap-2 md:grid-cols-3 rounded">
         <changeJob title="使用Excel引發寫程式興趣" :picture="codingPic" content="曾多次用Excel編寫程式，協助自己與同事提升工作效率，並從中引發寫程式的興趣。" />
         <changeJob title="樂於學習新事物" :picture="learningPic" content="對於有興趣的事情，我會利用閒暇時間不斷學習，並將所學應用於生活或工作中。" />
         <changeJob title="原領域成長趨緩" :picture="slowPic" content="能遊刃有餘地處理工作事務，並能獨自帶領新進人員，自覺成長速度已趨緩。" />
@@ -369,7 +380,7 @@ export default {
     <section class="my-9">
       <themeTitle title="我的優勢" itemId="skill" />
 
-      <div class="mt-3 bg-white p-2 grid gap-2 lg:grid-cols-3 rounded">
+      <div class="mt-3 bg-white p-3 grid gap-2 lg:grid-cols-3 rounded">
         <myAdvantage :title="'個人特質'" :bgColor="'bg-red-300/80'" :items="myAdvantage.personal" />
         <myAdvantage :title="'經驗累積'" :bgColor="'bg-blue-300/80'" :items="myAdvantage.experience" />
         <myAdvantage :title="'網頁開發'" :bgColor="'bg-green-300/80'" :pictures="myAdvantage.webDevelope" required />
@@ -377,26 +388,26 @@ export default {
     </section>
   </div>
 
-  <!-- 個人專案 -->
-  <section class="my-content bg-orange-300">
-    <themeTitle title="個人專案" itemId="myProject" />
+  <div class="my-content bg-orange-300/40">
+    <!-- 個人專案 -->
+    <section>
+      <themeTitle title="個人專案" itemId="myProject" />
+      <div class=" w-full h-3/4 py-3 lg:grid lg:grid-cols-2 lg:gap-5">
+        <myProject name="TodoList" href="" />
+        <myProject name="天氣卡" href="https://github.com/Bo-Yuan" />
+        <myProject name="購物車" href="https://github.com/Bo-Yuan" />
+        <myProject name="課務系統" href="https://github.com/Bo-Yuan" :picture="tomatoPic" />
+      </div>
+    </section>
 
-    <div class=" w-full h-3/4 pt-3 pb-5 lg:grid lg:grid-cols-2 lg:gap-5">
-      <myProject name="TodoList" href="" />
-      <myProject name="天氣卡" href="https://github.com/Bo-Yuan" />
-      <myProject name="購物車" href="https://github.com/Bo-Yuan" />
-      <myProject name="課務系統" href="https://github.com/Bo-Yuan" :picture="tomatoPic" />
-    </div>
-  </section>
-
-  <!-- 團體專案 -->
-  <section class="my-content bg-orange-300">
-    <themeTitle title="團體專案" itemId="groupProject" />
-
-    <div class="w-full h-3/4 flex flex-col pt-3 pb-5">
-      <myProject name="遠大好農 ITOMATO" href="https://github.com/Bo-Yuan" :picture="tomatoPic" />
-    </div>
-  </section>
+    <!-- 團體專案 -->
+    <section>
+      <themeTitle title="團體專案" itemId="groupProject" />
+      <div class="w-full h-3/4 flex flex-col py-3">
+        <myProject name="遠大好農 ITOMATO" href="https://github.com/Bo-Yuan" :picture="tomatoPic" />
+      </div>
+    </section>
+  </div>
 
   <!-- Gotop -->
   <div class="fixed right-2 bottom-28 z-10 cursor-pointer sm:right-5 lg:right-8 xl:right-10"
@@ -408,7 +419,7 @@ export default {
   </div>
 
   <!-- 頁尾 -->
-  <footer class="bg-slate-400/60 px-[10%] py-3 text-xl">
+  <footer class="bg-slate-300/60 px-[10%] py-3 text-xl">
     <address class="sm:grid sm:grid-cols-2 sm:text-center">
       <div class="pl-3">
         <a href="mailto:saxhundred@gmail.com" title="寄信給我" class="inline-block">
